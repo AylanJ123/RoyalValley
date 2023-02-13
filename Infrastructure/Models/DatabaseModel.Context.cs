@@ -27,6 +27,8 @@ namespace Infrastructure.Models
     
         public DbSet<Cobro> Cobro { get; set; }
         public DbSet<Edificio> Edificio { get; set; }
+        public DbSet<EdificioPublico> EdificioPublico { get; set; }
+        public DbSet<Residencia> Residencia { get; set; }
         public DbSet<Incidencia> Incidencia { get; set; }
         public DbSet<Noticias> Noticias { get; set; }
         public DbSet<PlanCobro> PlanCobro { get; set; }

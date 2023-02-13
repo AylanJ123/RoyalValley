@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Models
 {
-    public class DatabaseContext : RoyaltyValleyEntities
+    public class DatabaseContext : Entities
     {
-        public DatabaseContext() : base()
-        {
-        }
+        public DatabaseContext() : base() {}
     }
 }
