@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cobro">
           <Key>
             <PropertyRef Name="fecha" />
@@ -84,7 +84,6 @@
           </Key>
           <Property Name="edificio" Type="int" Nullable="false" />
           <Property Name="montoMensual" Type="money" Nullable="false" />
-          <Property Name="diaDePago" Type="money" Nullable="false" />
           <Property Name="cantInquilinos" Type="tinyint" Nullable="false" />
           <Property Name="espacioGaraje" Type="tinyint" Nullable="false" />
           <Property Name="habitaciones" Type="tinyint" Nullable="false" />
@@ -294,8 +293,7 @@
             <End Role="RubroPlan" EntitySet="RubroPlan" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -378,7 +376,6 @@
         </EntityType>
         <EntityType Name="Residencia" BaseType="Models.Edificio">
           <Property Name="montoMensual" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="diaDePago" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="cantInquilinos" Type="Byte" Nullable="false" />
           <Property Name="espacioGaraje" Type="Byte" Nullable="false" />
           <Property Name="habitaciones" Type="Byte" Nullable="false" />
@@ -571,7 +568,6 @@
                 <ScalarProperty Name="habitaciones" ColumnName="habitaciones" />
                 <ScalarProperty Name="espacioGaraje" ColumnName="espacioGaraje" />
                 <ScalarProperty Name="cantInquilinos" ColumnName="cantInquilinos" />
-                <ScalarProperty Name="diaDePago" ColumnName="diaDePago" />
                 <ScalarProperty Name="montoMensual" ColumnName="montoMensual" />
               </MappingFragment>
             </EntityTypeMapping>

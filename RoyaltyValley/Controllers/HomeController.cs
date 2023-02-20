@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ApplicationCore.Services;
+using Infraestructure.Utils;
+using Infrastructure.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Reflection;
 using System.Web.Mvc;
 
 namespace RoyaltyValley.Controllers
@@ -10,21 +12,22 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IServiceResidencia _ServiceResidencia = new ServiceResidencia();
+            IEnumerable<Residencia> list;
+            try
+            {
+                list = _ServiceResidencia.GetResidencias();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "Libro";
+                TempData["Redirect-Action"] = "IndexAdmin";
+                return RedirectToAction("Default", "Error");
+            }
+            return View(list);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

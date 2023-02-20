@@ -20,7 +20,6 @@ namespace Infrastructure.Models
         }
     
         public decimal montoMensual { get; set; }
-        public decimal diaDePago { get; set; }
         public byte cantInquilinos { get; set; }
         public byte espacioGaraje { get; set; }
         public byte habitaciones { get; set; }

@@ -33,7 +33,7 @@ namespace Infrastructure.Repository
             {
                 string mensaje = "";
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
-                throw;
+                throw ex;
             }
         }
 
