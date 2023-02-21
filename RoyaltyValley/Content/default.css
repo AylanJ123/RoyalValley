@@ -16,9 +16,36 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.border {
+    border: solid 2px grey;
+    border-radius: 10px;
+}
+
+.listed-card {
+    min-height: 175px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.listed-card p.card-text {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    margin-bottom: 0;
+}
+
+.dl-list {
+    margin: 15px 0 15px 0;
+}
+
+.dl-list dt {
+    width: 225px;
+    margin-right: 15px;
 }

@@ -12,21 +12,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
-            IServiceResidencia _ServiceResidencia = new ServiceResidencia();
-            IEnumerable<Residencia> list;
-            try
-            {
-                list = _ServiceResidencia.GetResidencias();
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, MethodBase.GetCurrentMethod());
-                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Libro";
-                TempData["Redirect-Action"] = "IndexAdmin";
-                return RedirectToAction("Default", "Error");
-            }
-            return View(list);
+            return View();
         }
 
     }

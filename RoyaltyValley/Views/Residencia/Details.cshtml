@@ -1,0 +1,128 @@
+﻿@model Infrastructure.Models.Residencia
+@using ApplicationCore.Utils.Enums
+@using ApplicationCore.Utils.Extensions
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de la residencia No. @Model.ID</h2>
+
+<div>
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            Calle :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.calle)
+        </dd>
+
+        <dt>
+            Avenida :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.avenida)
+        </dd>
+
+        <dt>
+            Descripción :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.descripcion)
+        </dd>
+
+        <dt>
+            Fecha de construcción :
+        </dt>
+
+        <dd>
+            @*@(Model.fechaConst.CompareTo(new DateTime(2022, 8, 1)))*@
+            @Model.fechaConst.ToString("d/M/yyyy")
+        </dd>
+
+        <dt>
+            Estado de construcción :
+        </dt>
+
+        <dd>
+            @(((EstadoConstruccion) Model.estado).GetDescription())
+        </dd>
+
+        <dt>
+            Monto mensual por servicios :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.montoMensual)&#8353
+        </dd>
+
+        <dt>
+            Cantidad actual de inquilinos :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.cantInquilinos)
+        </dd>
+
+        <dt>
+            Espacios en el garaje :
+        </dt>
+
+        <dd>
+            @(Model.espacioGaraje == 0 ? "No posee garaje" : Html.DisplayFor(item => item.espacioGaraje).ToHtmlString()) 
+        </dd>
+
+        <dt>
+            Cantidad de habitaciones :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.habitaciones)
+        </dd>
+
+    </dl>
+
+    <h2 class="mt-2"> Información del dueño </h2>
+
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            Nombre :
+        </dt>
+
+        <dd>
+            @string.Format("{0} {1} {2}", Model.Usuario.nombre, Model.Usuario.apellido1, Model.Usuario.apellido2)
+        </dd>
+
+        <dt>
+            Cédula :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Usuario.cedula)
+        </dd>
+
+        <dt>
+            Correo :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Usuario.correo)
+        </dd>
+
+        <dt>
+            Teléfono :
+        </dt>
+
+        <dd>
+            @(Model.Usuario.telefono == null ? "No posee teléfono" : Model.Usuario.telefono)
+        </dd>
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

@@ -19,19 +19,19 @@ namespace Infrastructure.Repository
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    list = cx.Residencia.ToList();
+                    list = cx.Residencia.Include("Usuario").ToList();
                 }
                 return list;
             }
             catch (DbUpdateException dbEx)
             {
-                string mensaje = "";
+                string mensaje = "Error en la conexión a la base de datos";
                 Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw new Exception(mensaje);
             }
             catch (Exception ex)
             {
-                string mensaje = "";
+                string mensaje = "Error desconocido";
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw ex;
             }
@@ -45,7 +45,7 @@ namespace Infrastructure.Repository
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    residencia = cx.Residencia.Find(id);
+                    residencia = cx.Residencia.Include("Usuario").Where(res => res.ID == id).FirstOrDefault();
                 }
                 return residencia;
             }
