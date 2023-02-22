@@ -1,0 +1,66 @@
+﻿@model Infrastructure.Models.PlanCobro
+@using ApplicationCore.Utils.Enums
+@using ApplicationCore.Utils.Extensions
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del plan de cobro No. @Model.ID</h2>
+
+<div>
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            Nombre del plan :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.nombre)
+        </dd>
+        <dt>
+            Descripción :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.descripcion)
+        </dd>
+        <dt>
+            Aplicado por defecto al cobrar :
+        </dt>
+
+        <dd>
+            @(Model.automatico ? "Sí" : "No")
+        </dd>
+
+
+    </dl>
+
+    <br/>
+    <h2>Rubros del plan:</h2>
+    <br/>
+
+    @foreach (var rubro in Model.Rubro)
+    {
+        <h3 class="mt-2"> Rubro No. @(rubro.ID) </h3>
+
+        <dl class="dl-horizontal dl-list">
+            <dt>
+                Monto :
+            </dt>
+
+            <dd>
+                @(rubro.porcentual ? string.Format("{0:0.##}% del valor base de la residencia", rubro.monto * 100) : string.Format("{0:0.00##}\u20a1", rubro.monto))
+            </dd>
+            <dt>
+                Motivo :
+            </dt>
+
+            <dd>
+                @rubro.motivo
+            </dd>
+        </dl>
+    }
+</div>
+<p>
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

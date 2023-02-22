@@ -10,21 +10,21 @@ using System.Web.Mvc;
 
 namespace RoyaltyValley.Controllers
 {
-    public class ResidenciaController : Controller
+    public class PlanCobroController : Controller
     {
         public ActionResult Index()
         {
-            IServiceResidencia _ServiceResidencia = new ServiceResidencia();
-            IEnumerable<Residencia> list;
+            IServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+            IEnumerable<PlanCobro> list;
             try
             {
-                list = _ServiceResidencia.GetResidencias();
+                list = _ServicePlanCobro.GetPlanesCobro();
             }
             catch (Exception ex)
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Residencia";
+                TempData["Redirect"] = "PlanCobro";
                 TempData["Redirect-Action"] = "Index";
                 return RedirectToAction("Default", "Error");
             }
@@ -33,22 +33,21 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Details(int id)
         {
-            IServiceResidencia _ServiceResidencia = new ServiceResidencia();
-            Residencia res;
+            IServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+            PlanCobro plan;
             try
             {
-                res = _ServiceResidencia.GetResidenciaByID(id);
+                plan = _ServicePlanCobro.GetPlanCobroByID(id);
             }
             catch (Exception ex)
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Residencia";
+                TempData["Redirect"] = "PlanCobro";
                 TempData["Redirect-Action"] = "Details";
                 return RedirectToAction("Default", "Error");
             }
-            return View(res);
+            return View(plan);
         }
-
     }
 }

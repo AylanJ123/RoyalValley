@@ -153,6 +153,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlanCobroController.cs" />
     <Compile Include="Controllers\ResidenciaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +195,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Residencia\Details.cshtml" />
     <Content Include="Views\Residencia\Index.cshtml" />
+    <Content Include="Views\PlanCobro\Details.cshtml" />
+    <Content Include="Views\PlanCobro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
