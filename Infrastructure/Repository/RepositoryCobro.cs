@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public class RepositoryPlanCobro : IRepositoryPlanCobro
+    public class RepositoryCobro : IRepositoryCobro
     {
-        public IEnumerable<PlanCobro> GetPlanesCobro()
+        public IEnumerable<Cobro> GetCobros()
         {
             try
             {
-                IEnumerable<PlanCobro> list = null;
+                IEnumerable<Cobro> list = null;
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    list = cx.PlanCobro.Include("Rubro").ToList();
+                    list = cx.Cobro.Include("Residencia1").Include("Residencia1.Usuario").Include("PlanCobro1").Include("PlanCobro1.Rubro").ToList();
                 }
                 return list;
             }
@@ -37,17 +37,22 @@ namespace Infrastructure.Repository
             }
         }
 
-        public PlanCobro GetPlanCobroByID(int id)
+        public Cobro GetCobroByKeys(DateTime fecha, int idResidencia, int idPlanCobro)
         {
             try
             {
-                PlanCobro planCobro = null;
+                Cobro cob = null;
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    planCobro = cx.PlanCobro.Include("Rubro").Where(plan => plan.ID == id).FirstOrDefault();
+                    cob = cx.Cobro.Include("Residencia")
+                        .Include("Residencia.Usuario")
+                        .Include("PlanCobro")
+                        .Include("PlanCobro.Rubro")
+                        .Where(cobro => cobro.fecha.CompareTo(fecha) == 0 && cobro.residencia == idResidencia && cobro.planCobro == idPlanCobro)
+                        .FirstOrDefault();
                 }
-                return planCobro;
+                return cob;
             }
             catch (DbUpdateException dbEx)
             {

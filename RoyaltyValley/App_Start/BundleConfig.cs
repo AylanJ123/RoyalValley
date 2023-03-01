@@ -9,24 +9,16 @@ namespace RoyaltyValley
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new Bundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
+                "~/Scripts/jquery-3.6.3.js"
+            ));
             bundles.Add(new Bundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new Bundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.min.js"
-                      ));
-
-            bundles.Add(new Bundle("~/bundles/css").Include(
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/default.css"
-                      ));
+                "~/Scripts/jquery.validate"
+            ));
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                "~/Scripts/modernizr-2.8.3"
+            ));
+            bundles.Add(new Bundle("~/bundles/bootstrap").IncludeDirectory("~/Scripts", "bootstrap*"));
+            bundles.Add(new Bundle("~/bundles/css").IncludeDirectory("~/Content", "*.css"));
         }
     }
 }

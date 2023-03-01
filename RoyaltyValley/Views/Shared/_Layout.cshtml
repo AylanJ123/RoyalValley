@@ -5,30 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Royalty Valley</title>
     @Styles.Render("~/bundles/css")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @RenderSection("styles", required: false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Royalty Valley", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Residencias", "Index", "Residencia")</li>
-                    <li>@Html.ActionLink("Planes de Cobro", "Index", "PlanCobro")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Menu")
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -36,9 +18,9 @@
             <p>&copy; @DateTime.Now.Year - Royalty Valley</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
