@@ -1,0 +1,127 @@
+﻿@model Infrastructure.Models.Residencia
+@using ApplicationCore.Utils.Enums
+@using ApplicationCore.Utils.Extensions
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de la residencia No. @Model.ID</h2>
+
+<div>
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            @Html.DisplayNameFor(item => item.calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.avenida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.avenida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.fechaConst)
+        </dt>
+
+        <dd>
+            @(Model.fechaConst.HasValue ? Model.fechaConst.Value.ToString("d/M/yyyy") : "Sin construir")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.estado)
+        </dt>
+
+        <dd>
+            @(((EstadoConstruccion) Model.estado).GetDescription())
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.montoMensual)
+        </dt>
+
+        <dd>
+            @("\u20a1" + Html.DisplayFor(item => item.montoMensual))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.cantInquilinos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.cantInquilinos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.espacioGaraje)
+        </dt>
+
+        <dd>
+            @(Model.espacioGaraje == 0 ? "No posee garaje" : Html.DisplayFor(item => item.espacioGaraje).ToHtmlString()) 
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.habitaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.habitaciones)
+        </dd>
+
+    </dl>
+
+    <h2 class="mt-2"> Información del dueño </h2>
+
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            @Html.DisplayNameFor(item => item.Usuario.nombre)
+        </dt>
+
+        <dd>
+            @string.Format("{0} {1} {2}", Model.Usuario.nombre, Model.Usuario.apellido1, Model.Usuario.apellido2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Usuario.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Usuario.cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Usuario.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Usuario.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Usuario.telefono)
+        </dt>
+
+        <dd>
+            @(Model.Usuario.telefono == null ? "No posee teléfono" : Model.Usuario.telefono)
+        </dd>
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

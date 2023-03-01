@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Infrastructure.Models.Residencia>
+@using ApplicationCore.Utils.Enums
+@using ApplicationCore.Utils.Extensions
+
+@{
+    ViewBag.Title = "Listado de Residencias";
+}
+
+<h2>Listado de Residencias</h2>
+<br/>
+<div class="row">
+    <div class="col-lg-9">
+        <div id="resultado" class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-3 listed-card card mx-1" onclick="window.location.href = '@Url.Action("Details", "Residencia", new { id = item.ID })'">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Residencia No. @Html.DisplayFor(modelItem => item.ID)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="small">[@(((EstadoConstruccion)item.estado).GetDescription())]</i> @Html.DisplayFor(modelItem => item.descripcion)</h6>
+                        <p class="card-text mb-0 mt-auto" style="font-size: 28px; font-weight: 500; color: #F47A00;">@((EstadoConstruccion) item.estado == EstadoConstruccion.Construido ? "\u20a1" + Html.DisplayFor(modelItem => item.montoMensual) + "/m" : "No Disponible")</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

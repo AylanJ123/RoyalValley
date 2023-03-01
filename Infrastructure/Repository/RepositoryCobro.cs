@@ -1,4 +1,4 @@
-﻿using Infraestructure.Utils;
+﻿using Infrastructure.Utils;
 using Infrastructure.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Infrastructure.Repository
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    list = cx.Cobro.Include("Residencia1").Include("Residencia1.Usuario").Include("PlanCobro1").Include("PlanCobro1.Rubro").ToList();
+                    list = cx.Cobro.Include("Residencia").Include("Residencia.Usuario").Include("PlanCobro").Include("PlanCobro.Rubro").ToList();
                 }
                 return list;
             }
@@ -49,7 +49,7 @@ namespace Infrastructure.Repository
                         .Include("Residencia.Usuario")
                         .Include("PlanCobro")
                         .Include("PlanCobro.Rubro")
-                        .Where(cobro => cobro.fecha.CompareTo(fecha) == 0 && cobro.residencia == idResidencia && cobro.planCobro == idPlanCobro)
+                        .Where(cobro => cobro.fecha.CompareTo(fecha) == 0 && cobro.Residencia.ID == idResidencia && cobro.PlanCobro.ID == idPlanCobro)
                         .FirstOrDefault();
                 }
                 return cob;

@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e5e456097c554604b7685d32a3decba9" Name="Diagram1" ZoomLevel="50">
-        <EntityTypeShape EntityType="Models.Cobro" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Edificio" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.EdificioPublico" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Incidencia" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Noticias" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.PlanCobro" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Reserva" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Residencia" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Rubro" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="Models.FK_Cobro_PlanCobro1" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Cobro_Residencia" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Reserva_EdificioPublico" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Incidencia_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Reserva_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Residencia_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.RubroPlan" ManuallyRouted="false" />
-        <InheritanceConnector EntityType="Models.EdificioPublico" />
-        <InheritanceConnector EntityType="Models.Residencia" />
+      <Diagram DiagramId="ff7ae100643d4fc69d9a12498103502d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Cobro" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Edificio" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EdificioPublico" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Incidencia" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Noticias" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PlanCobro" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Reserva" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Residencia" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Rubro" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Cobro_PlanCobro1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cobro_Residencia" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Reserva_EdificioPublico" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Incidencia_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Reserva_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Residencia_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RubroPlan" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="Model.EdificioPublico" />
+        <InheritanceConnector EntityType="Model.Residencia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Infrastructure.Models.Cobro>
+@using System.Globalization
+
+@{
+    ViewBag.Title = "Listado de Estados de Cuenta";
+}
+
+<h2>Listado de Estados de Cuenta</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(item => item.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.Residencia.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.nombre)
+        </th>
+        <th></th>
+    </tr>
+    @{ CultureInfo info = new CultureInfo("es-CR"); }
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @item.fecha.ToString("MMMM \\del yyyy", info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Residencia.ID)
+            </td>
+            <td>
+                @string.Format("{0} {1} {2}", item.Residencia.Usuario.nombre, item.Residencia.Usuario.apellido1, item.Residencia.Usuario.apellido2)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { fecha = item.fecha, idResidencia = item.Residencia.ID, idPlanCobro = item.PlanCobro })
+                @*
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                *@
+            </td>
+        </tr>
+    }
+
+</table>
