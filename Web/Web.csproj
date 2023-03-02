@@ -238,7 +238,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Cobro\Details.cshtml" />
     <Content Include="Views\Cobro\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PlanCobro\Details.cshtml" />
@@ -248,6 +247,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cobro\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

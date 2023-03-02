@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [RoyaltyValley-Aylan_Sebas]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Database [RoyaltyValley-Aylan_Sebas]    Script Date: 1/3/2023 14:45:09 ******/
 CREATE DATABASE [RoyaltyValley-Aylan_Sebas] CONTAINMENT = NONE
 GO
 ALTER DATABASE [RoyaltyValley-Aylan_Sebas] SET COMPATIBILITY_LEVEL = 150
@@ -78,7 +78,7 @@ ALTER DATABASE [RoyaltyValley-Aylan_Sebas] SET QUERY_STORE (OPERATION_MODE = REA
 GO
 USE [RoyaltyValley-Aylan_Sebas]
 GO
-/****** Object:  Table [dbo].[Cobro]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Cobro]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,7 +98,7 @@ CREATE TABLE [dbo].[Cobro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Edificio]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Edificio]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -116,7 +116,7 @@ CREATE TABLE [dbo].[Edificio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[EdificioPublico]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[EdificioPublico]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,7 +132,7 @@ CREATE TABLE [dbo].[EdificioPublico](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Incidencia]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Incidencia]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[Incidencia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Noticias]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Noticias]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -165,7 +165,7 @@ CREATE TABLE [dbo].[Noticias](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PlanCobro]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[PlanCobro]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -181,7 +181,7 @@ CREATE TABLE [dbo].[PlanCobro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Reserva]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Reserva]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,7 +200,7 @@ CREATE TABLE [dbo].[Reserva](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Residencia]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Residencia]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +218,7 @@ CREATE TABLE [dbo].[Residencia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Rubro]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Rubro]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -234,7 +234,7 @@ CREATE TABLE [dbo].[Rubro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RubroPlan]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[RubroPlan]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -249,7 +249,7 @@ CREATE TABLE [dbo].[RubroPlan](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 1/3/2023 14:45:09 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -283,6 +283,10 @@ GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-02-01' AS Date), 2, 101, 25000.0000, 1, CAST(N'2023-02-01T00:00:00.000' AS DateTime))
 GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-02-01' AS Date), 5, 102, 21875.0000, 1, CAST(N'2023-02-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 1, 101, 17500.0000, 0, NULL)
+GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 2, 102, 25000.0000, 0, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Edificio] ON 
 GO
@@ -364,7 +368,7 @@ SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Usuario__2A586E0BA9709953]    Script Date: 3/1/2023 11:41:17 AM ******/
+/****** Object:  Index [UQ__Usuario__2A586E0BA9709953]    Script Date: 1/3/2023 14:45:09 ******/
 ALTER TABLE [dbo].[Usuario] ADD  CONSTRAINT [UQ__Usuario__2A586E0BA9709953] UNIQUE NONCLUSTERED 
 (
 	[correo] ASC

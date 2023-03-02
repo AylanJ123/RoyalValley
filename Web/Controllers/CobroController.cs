@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using ApplicationCore.DTOS;
 
 namespace RoyaltyValley.Controllers
 {
@@ -14,11 +15,11 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
-            IServiceCobro _ServiceCobro = new ServiceCobro();
-            IEnumerable<Cobro> list;
+            IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
+            IEnumerable<EstadoCuenta> list;
             try
             {
-                list = _ServiceCobro.GetCobros();
+                list = _ServiceEstadoCuenta.GetEstadosCuenta();
             }
             catch (Exception ex)
             {
@@ -31,13 +32,13 @@ namespace RoyaltyValley.Controllers
             return View(list);
         }
 
-        public ActionResult Details(DateTime fecha, int idResidencia, int idPlanCobro)
+        public ActionResult Details(int idResidencia)
         {
-            IServiceCobro _ServiceCobro = new ServiceCobro();
-            Cobro res;
+            IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
+            EstadoCuenta estado;
             try
             {
-                res = _ServiceCobro.GetCobroByKeys(fecha, idResidencia, idPlanCobro);
+                estado = _ServiceEstadoCuenta.GetEstadoCuentaFromResidencia(idResidencia);
             }
             catch (Exception ex)
             {
@@ -47,7 +48,7 @@ namespace RoyaltyValley.Controllers
                 TempData["Redirect-Action"] = "Details";
                 return RedirectToAction("Default", "Error");
             }
-            return View(res);
+            return View(estado);
         }
     }
 }

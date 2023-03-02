@@ -1,65 +1,225 @@
-﻿@model Infrastructure.Models.PlanCobro
+﻿@model ApplicationCore.DTOS.EstadoCuenta
+@using System.Globalization
 @using ApplicationCore.Utils.Enums
 @using ApplicationCore.Utils.Extensions
+@using ApplicationCore.DTOS;
+@using Infrastructure.Models;
 
 @{
     ViewBag.Title = "Detalles";
+    CultureInfo info = new CultureInfo("es-CR");
+    IEnumerable<Cobro> cobrosPagos = Model.Cobros.FindAll(cobro => cobro.pagado);
+    IEnumerable<Cobro> cobrosPendientes = Model.Cobros.FindAll(cobro => !cobro.pagado);
 }
 
-<h2>Detalles del plan de cobro No. @Model.ID</h2>
+
+
+<h2>Detalles del Estado de Cuenta para la Residencia No. @Model.Residencia.ID</h2>
 
 <div>
+    <dl class="dl-horizontal">
+
+        <dt>
+            Cantidad de cobros:
+        </dt>
+
+        <dd>
+            @Model.Cobros.Count
+        </dd>
+
+        <dt>
+            Cobros pendientes
+        </dt>
+
+        <dd>
+            @cobrosPendientes.Count()
+        </dd>
+    </dl>
+
+    <br />
+    <h2>Detalles de la Residencia</h2>
+    <br />
+
     <dl class="dl-horizontal dl-list">
         <dt>
-            Nombre del plan :
+            @Html.DisplayNameFor(item => item.Residencia.calle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(item => item.nombre)
+            @Html.DisplayFor(item => item.Residencia.calle)
         </dd>
+
         <dt>
-            Descripción :
+            @Html.DisplayNameFor(item => item.Residencia.avenida)
         </dt>
 
         <dd>
-            @Html.DisplayFor(item => item.descripcion)
+            @Html.DisplayFor(item => item.Residencia.avenida)
         </dd>
+
         <dt>
-            Aplicado por defecto al cobrar :
+            @Html.DisplayNameFor(item => item.Residencia.descripcion)
         </dt>
 
         <dd>
-            @(Model.automatico ? "Sí" : "No")
+            @Html.DisplayFor(item => item.Residencia.descripcion)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.fechaConst)
+        </dt>
+
+        <dd>
+            @(Model.Residencia.fechaConst.HasValue ? Model.Residencia.fechaConst.Value.ToString("d/M/yyyy") : "Sin construir")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.estado)
+        </dt>
+
+        <dd>
+            @(((EstadoConstruccion)Model.Residencia.estado).GetDescription())
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.montoMensual)
+        </dt>
+
+        <dd>
+            @("\u20a1" + Html.DisplayFor(item => item.Residencia.montoMensual))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.cantInquilinos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Residencia.cantInquilinos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.espacioGaraje)
+        </dt>
+
+        <dd>
+            @(Model.Residencia.espacioGaraje == 0 ? "No posee garaje" : Html.DisplayFor(item => item.Residencia.espacioGaraje).ToHtmlString())
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.habitaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Residencia.habitaciones)
+        </dd>
 
     </dl>
 
-    <br/>
-    <h2>Rubros del plan:</h2>
-    <br/>
+    <br />
+    <h2>Detalles del dueño de la Residencia</h2>
+    <br />
 
-    @foreach (var rubro in Model.Rubro)
-    {
-        <h3 class="mt-2"> Rubro No. @(rubro.ID) </h3>
+    <dl class="dl-horizontal dl-list">
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.nombre)
+        </dt>
 
-        <dl class="dl-horizontal dl-list">
-            <dt>
-                Monto :
-            </dt>
+        <dd>
+            @string.Format("{0} {1} {2}", Model.Residencia.Usuario.nombre, Model.Residencia.Usuario.apellido1, Model.Residencia.Usuario.apellido2)
+        </dd>
 
-            <dd>
-                @(rubro.porcentual ? string.Format("{0:0.##}% del valor base de la residencia", rubro.monto * 100) : string.Format("{0:0.00##}\u20a1", rubro.monto))
-            </dd>
-            <dt>
-                Motivo :
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.cedula)
+        </dt>
 
-            <dd>
-                @rubro.motivo
-            </dd>
-        </dl>
-    }
+        <dd>
+            @Html.DisplayFor(item => item.Residencia.Usuario.cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => item.Residencia.Usuario.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.telefono)
+        </dt>
+
+        <dd>
+            @(Model.Residencia.Usuario.telefono == null ? "No posee teléfono" : Model.Residencia.Usuario.telefono)
+        </dd>
+
+    </dl>
+
+    <br />
+    <h2>Historial de pagos</h2>
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Plan
+            </th>
+            <th>
+                Monto
+            </th>
+        </tr>
+
+        @foreach (var cobro in cobrosPagos)
+        {
+            <tr>
+                <td>
+                    @cobro.fecha.ToString("MMMM \\del yyyy", info)
+                </td>
+                <td>
+                    @cobro.PlanCobro.ID
+                </td>
+                <td>
+                    @("\u20a1" + cobro.total)
+                </td>
+            </tr>
+        }
+    </table>
+
+    <br />
+    <h2>Deudas vigentes</h2>
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Plan
+            </th>
+            <th>
+                Monto
+            </th>
+        </tr>
+
+        @foreach (var cobro in cobrosPendientes)
+        {
+            <tr>
+                <td>
+                    @cobro.fecha.ToString("MMMM \\del yyyy", info)
+                </td>
+                <td>
+                    @cobro.PlanCobro.ID
+                </td>
+                <td>
+                    @("\u20a1" + cobro.total)
+                </td>
+            </tr>
+        }
+    </table>
+
 </div>
 <p>
     @Html.ActionLink("Regresar al listado", "Index")
