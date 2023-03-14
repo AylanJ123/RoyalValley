@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Infrastructure.Repository
 {
@@ -61,6 +62,51 @@ namespace Infrastructure.Repository
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw;
             }
+        }
+
+        public PlanCobro Save(PlanCobro plan, int[] rubros)
+        {
+            int retorno = 0;
+            PlanCobro oPlanCobro = null;
+
+            using (DatabaseContext ctx = new DatabaseContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oPlanCobro = GetPlanCobroByID(plan.ID);
+                IRepositoryRubro _RepositoryRubro = new RepositoryRubro();
+                if (oPlanCobro == null)
+                {
+                    if (rubros != null)
+                    {
+                        plan.Rubro = new List<Rubro>();
+                        foreach (int rubroId in rubros)
+                        {
+                            var rubroToAdd = _RepositoryRubro.GetRubroByID(rubroId);
+                            ctx.Rubro.Attach(rubroToAdd);
+                            plan.Rubro.Add(rubroToAdd);
+                        }
+                    }
+                    ctx.PlanCobro.Add(plan);
+                    retorno = ctx.SaveChanges();
+                }
+                else
+                {
+                    ctx.PlanCobro.Add(plan);
+                    ctx.Entry(plan).State = EntityState.Modified;
+                    retorno = ctx.SaveChanges();
+                    if (rubros != null)
+                    {
+                        ctx.Entry(plan).Collection(p => p.Rubro).Load();
+                        var newCategoriaForPlanCobro = ctx.Rubro.Where(rubro => Array.Exists(rubros, id => rubro.ID == id)).ToList();
+                        plan.Rubro = newCategoriaForPlanCobro;
+                        ctx.Entry(plan).State = EntityState.Modified;
+                        retorno = ctx.SaveChanges();
+                    }
+                }
+            }
+            if (retorno >= 0)
+                oPlanCobro = GetPlanCobroByID(plan.ID);
+            return oPlanCobro;
         }
     }
 }

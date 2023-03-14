@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,9 +43,13 @@ namespace Infrastructure.Models
         public class PlanCobroMTDT
         {
             [Display(Name = "No. De Plan")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
             [Display(Name = "Nombre")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un nombre")]
+            [StringLength(40, ErrorMessage = "No se permiten más de 40 caracteres en el nombre")]
             public string nombre { get; set; }
+            [StringLength(200, ErrorMessage = "No se permiten más de 200 caracteres en la descripción")]
             [Display(Name = "Descripción")]
             public string descripcion { get; set; }
             [Display(Name = "Es aplicado por defecto?")]

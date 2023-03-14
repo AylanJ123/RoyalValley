@@ -7,6 +7,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
+using Web.Utils;
 
 namespace RoyaltyValley.Controllers
 {
@@ -49,5 +51,48 @@ namespace RoyaltyValley.Controllers
             }
             return View(plan);
         }
+
+        public ActionResult Create()
+        {
+            ViewBag.listaRubros = ListaRubros();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Save(PlanCobro plan, int[] listaRubros)
+        {
+            IServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    PlanCobro oPlan = _ServicePlanCobro.Save(plan, listaRubros);
+                }
+                else
+                {
+                    Util.ValidateErrors(this);
+                    ViewBag.listaRubros = ListaRubros();
+                    if (plan.ID > 0) return View("Edit", plan);
+                    else return View("Create", plan);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "PlanCobro";
+                TempData["Redirect-Action"] = "Create";
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+        private MultiSelectList ListaRubros()
+        {
+            IServiceRubro _ServiceRubro = new ServiceRubro();
+            IEnumerable<Rubro> lista = _ServiceRubro.GetRubros();
+            return new MultiSelectList(lista, "ID", "Motivo", lista);
+        }
+
     }
 }

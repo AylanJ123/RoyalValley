@@ -42,21 +42,22 @@
     <table class="table">
         <tr>
             <th>
-                Monto
-            </th>
-            <th>
                 Motivo
             </th>
+            <th>
+                Monto
+            </th>
+            
         </tr>
 
         @foreach (var rubro in Model.Rubro)
         {
             <tr>
                 <td>
-                    @(rubro.porcentual ? string.Format("{0:0.##}% del valor base", rubro.monto * 100) : string.Format("\u20a1{0:0.00##}", rubro.monto))
+                    @rubro.motivo
                 </td>
                 <td>
-                    @rubro.motivo
+                    @(rubro.porcentual ? string.Format("{0:0.##}% del valor base", rubro.monto * 100) : string.Format("\u20a1{0:0.00##}", rubro.monto))
                 </td>
             </tr>
         }

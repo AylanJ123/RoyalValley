@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public interface IRepositoryPlanCobro
+    public interface IRepositoryRubro
     {
-        IEnumerable<PlanCobro> GetPlanesCobro();
-        PlanCobro GetPlanCobroByID(int id);
-        PlanCobro Save(PlanCobro plan, int[] rubros);
+        IEnumerable<Rubro> GetRubros();
+        Rubro GetRubroByID(int id);
     }
 }

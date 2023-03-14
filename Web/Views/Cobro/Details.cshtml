@@ -12,8 +12,6 @@
     IEnumerable<Cobro> cobrosPendientes = Model.Cobros.FindAll(cobro => !cobro.pagado);
 }
 
-
-
 <h2>Detalles del Estado de Cuenta para la Residencia No. @Model.Residencia.ID</h2>
 
 <div>
@@ -178,7 +176,7 @@
                     @cobro.fecha.ToString("MMMM \\del yyyy", info)
                 </td>
                 <td>
-                    @cobro.PlanCobro.ID
+                    @cobro.PlanCobro.nombre
                 </td>
                 <td>
                     @("\u20a1" + cobro.total)
@@ -211,7 +209,7 @@
                     @cobro.fecha.ToString("MMMM \\del yyyy", info)
                 </td>
                 <td>
-                    @cobro.PlanCobro.ID
+                    @cobro.PlanCobro.nombre
                 </td>
                 <td>
                     @("\u20a1" + cobro.total)

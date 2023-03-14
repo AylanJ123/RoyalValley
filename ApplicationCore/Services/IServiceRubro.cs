@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Services
 {
-    public interface IServicePlanCobro
+    public interface IServiceRubro
     {
-        IEnumerable<PlanCobro> GetPlanesCobro();
-        PlanCobro GetPlanCobroByID(int id);
-        PlanCobro Save(PlanCobro plan, int[] rubros);
+        IEnumerable<Rubro> GetRubros();
+        Rubro GetRubroByID(int id);
     }
 }

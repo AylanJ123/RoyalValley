@@ -6,19 +6,19 @@
 
 <h2>Listado de Planes de Cobro</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+<p>
+    @Html.ActionLink("Crear un nuevo plan", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(modelItem => modelItem.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(modelItem => modelItem.automatico)
+            @Html.DisplayNameFor(modelItem => modelItem.descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(modelItem => modelItem.nombre)
+            @Html.DisplayNameFor(modelItem => modelItem.automatico)
         </th>
         <th></th>
     </tr>
@@ -37,11 +37,7 @@
             </td>
             <td>
                 @Html.ActionLink("Detalles", "Details", new { id = item.ID })
-                @*
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                *@
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
             </td>
         </tr>
     }
