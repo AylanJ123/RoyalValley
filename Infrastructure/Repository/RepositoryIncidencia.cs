@@ -10,17 +10,18 @@ using System.Data.Entity;
 
 namespace Infrastructure.Repository
 {
-    public class RepositoryRubro : IRepositoryRubro
+    public class RepositoryIncidencia : IRepositoryIncidencia
     {
-        public IEnumerable<Rubro> GetRubros()
+
+        public IEnumerable<Incidencia> GetIncidencias()
         {
             try
             {
-                IEnumerable<Rubro> list = null;
+                IEnumerable<Incidencia> list = null;
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    list = cx.Rubro.ToList();
+                    list = cx.Incidencia.ToList();
                 }
                 return list;
             }
@@ -38,17 +39,17 @@ namespace Infrastructure.Repository
             }
         }
 
-        public Rubro GetRubroByID(int id)
+        public Incidencia GetIncidenciaByID(int id)
         {
             try
             {
-                Rubro rubro = null;
+                Incidencia incidencia = null;
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    rubro = cx.Rubro.Where(res => res.ID == id).FirstOrDefault();
+                    incidencia = cx.Incidencia.Where(inc => inc.ID == id).FirstOrDefault();
                 }
-                return rubro;
+                return incidencia;
             }
             catch (DbUpdateException dbEx)
             {
@@ -64,29 +65,29 @@ namespace Infrastructure.Repository
             }
         }
 
-        public Rubro Save(Rubro rubro)
+        public Incidencia Save(Incidencia incidencia)
         {
             int retorno = 0;
-            Rubro oRubro = null;
+            Incidencia oIncidencia = null;
             using (DatabaseContext ctx = new DatabaseContext())
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
-                oRubro = GetRubroByID(rubro.ID);
-                IRepositoryRubro _RepositoryRubro = new RepositoryRubro();
-                if (oRubro == null)
+                oIncidencia = GetIncidenciaByID(incidencia.ID);
+                IRepositoryIncidencia _RepositoryIncidencia = new RepositoryIncidencia();
+                if (oIncidencia == null)
                 {
-                    ctx.Rubro.Add(rubro);
+                    ctx.Incidencia.Add(incidencia);
                     retorno = ctx.SaveChanges();
                 }
                 else
                 {
-                    ctx.Rubro.Add(rubro);
-                    ctx.Entry(rubro).State = EntityState.Modified;
+                    ctx.Incidencia.Add(incidencia);
+                    ctx.Entry(incidencia).State = EntityState.Modified;
                     retorno = ctx.SaveChanges();
                 }
             }
-            if (retorno >= 0) oRubro = GetRubroByID(rubro.ID);
-            return oRubro;
+            if (retorno >= 0) oIncidencia = GetIncidenciaByID(incidencia.ID);
+            return oIncidencia;
         }
 
     }

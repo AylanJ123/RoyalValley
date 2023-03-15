@@ -14,6 +14,7 @@ namespace Infrastructure.Models
     [MetadataType(typeof(CobroMTDT))] public partial class Cobro { }
     [MetadataType(typeof(UsuarioMTDT))] public partial class Usuario { }
     [MetadataType(typeof(RubroMTDT))] public partial class Rubro { }
+    [MetadataType(typeof(IncidenciaMTDT))] public partial class Incidencia { }
     public static class Metadata
     {
         public class ResidenciaMTDT
@@ -95,14 +96,30 @@ namespace Infrastructure.Models
         public class RubroMTDT
         {
             [Display(Name = "No. De Rubro")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
             [Display(Name = "Monto")]
+            [Range(-922337203685477.5808, 922337203685477.5807, ErrorMessage = "No se permiten valores demasiado grandes")]
             public decimal monto { get; set; }
             [Display(Name = "Es porcentual?")]
             public bool porcentual { get; set; }
             [Display(Name = "Motivo de cobro")]
+            [StringLength(100, ErrorMessage = "No se permiten más de 100 caracteres en el motivo")]
             public string motivo { get; set; }
         }
 
+        public class IncidenciaMTDT
+        {
+            [Display(Name = "No. De Incidencia")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int ID { get; set; }
+            [StringLength(200, ErrorMessage = "No se permiten más de 200 caracteres en la descripción")]
+            [Display(Name = "Descripción")]
+            public string descripcion { get; set; }
+            [Display(Name = "Fecha")]
+            public DateTime fecha { get; set; }
+            [Display(Name = "Estado")]
+            public byte estado { get; set; }
+        }
     }
 }

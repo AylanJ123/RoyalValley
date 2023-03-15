@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public interface IRepositoryRubro
+    public interface IRepositoryIncidencia
     {
-        IEnumerable<Rubro> GetRubros();
-        Rubro GetRubroByID(int id);
-        Rubro Save(Rubro rubro);
+        IEnumerable<Incidencia> GetIncidencias();
+        Incidencia GetIncidenciaByID(int id);
+        Incidencia Save(Incidencia incidencia);
     }
 }
