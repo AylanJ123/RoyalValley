@@ -72,12 +72,14 @@
     <Compile Include="DTOS\EstadoCuenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IServiceIncidencia.cs" />
+    <Compile Include="Services\IServiceNoticia.cs" />
     <Compile Include="Services\IServiceRubro.cs" />
     <Compile Include="Services\IServiceEstadoCuenta.cs" />
     <Compile Include="Services\IServiceCobro.cs" />
     <Compile Include="Services\IServicePlanCobro.cs" />
     <Compile Include="Services\IServiceResidencia.cs" />
     <Compile Include="Services\ServiceIncidencia.cs" />
+    <Compile Include="Services\ServiceNoticia.cs" />
     <Compile Include="Services\ServiceRubro.cs" />
     <Compile Include="Services\ServiceEstadoCuenta.cs" />
     <Compile Include="Services\ServiceCobro.cs" />
@@ -95,7 +97,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

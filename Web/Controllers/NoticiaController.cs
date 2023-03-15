@@ -12,21 +12,21 @@ using Web.Utils;
 
 namespace RoyaltyValley.Controllers
 {
-    public class RubroController : Controller
+    public class NoticiaController : Controller
     {
         public ActionResult Index()
         {
-            IServiceRubro _ServiceRubro = new ServiceRubro();
-            IEnumerable<Rubro> list;
+            IServiceNoticia _ServiceNoticia = new ServiceNoticia();
+            IEnumerable<Noticias> list;
             try
             {
-                list = _ServiceRubro.GetRubros();
+                list = _ServiceNoticia.GetNoticias();
             }
             catch (Exception ex)
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Rubro";
+                TempData["Redirect"] = "Noticia";
                 TempData["Redirect-Action"] = "Index";
                 return RedirectToAction("Default", "Error");
             }
@@ -38,39 +38,39 @@ namespace RoyaltyValley.Controllers
             return View();
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string nombre)
         {
-            ServiceRubro _ServiceRubro = new ServiceRubro();
+            ServiceNoticia _ServiceNoticia = new ServiceNoticia();
             try
             {
-                Rubro plan = _ServiceRubro.GetRubroByID(id);
+                Noticias plan = _ServiceNoticia.GetNoticiaByNombre(nombre);
                 return View(plan);
             }
             catch (Exception ex)
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "No se pudo editar el libro deseado" + ex.Message;
-                TempData["Redirect"] = "Rubro";
+                TempData["Redirect"] = "Noticia";
                 TempData["Redirect-Action"] = "Index";
                 return RedirectToAction("Default", "Error");
             }
         }
 
         [HttpPost]
-        public ActionResult Save(Rubro plan)
+        public ActionResult Save(Noticias noticia, bool edit = false)
         {
-            IServiceRubro _ServiceRubro = new ServiceRubro();
+            IServiceNoticia _ServiceNoticia = new ServiceNoticia();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    Rubro oPlan = _ServiceRubro.Save(plan);
+                    Noticias oPlan = _ServiceNoticia.Save(noticia);
                 }
                 else
                 {
                     Util.ValidateErrors(this);
-                    if (plan.ID > 0) return View("Edit", plan);
-                    else return View("Create", plan);
+                    if (edit) return View("Edit", noticia);
+                    else return View("Create", noticia);
                 }
                 return RedirectToAction("Index");
             }
@@ -78,7 +78,7 @@ namespace RoyaltyValley.Controllers
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Rubro";
+                TempData["Redirect"] = "Noticia";
                 TempData["Redirect-Action"] = "Create";
                 return RedirectToAction("Default", "Error");
             }

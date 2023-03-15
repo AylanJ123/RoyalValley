@@ -12,7 +12,21 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IServiceNoticia _ServiceNoticia = new ServiceNoticia();
+            IEnumerable<Noticias> list;
+            try
+            {
+                list = _ServiceNoticia.GetNoticias();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "Noticia";
+                TempData["Redirect-Action"] = "Index";
+                return RedirectToAction("Default", "Error");
+            }
+            return View(list);
         }
 
     }

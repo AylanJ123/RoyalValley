@@ -15,6 +15,7 @@ namespace Infrastructure.Models
     [MetadataType(typeof(UsuarioMTDT))] public partial class Usuario { }
     [MetadataType(typeof(RubroMTDT))] public partial class Rubro { }
     [MetadataType(typeof(IncidenciaMTDT))] public partial class Incidencia { }
+    [MetadataType(typeof(NoticiasMTDT))] public partial class Noticias { }
     public static class Metadata
     {
         public class ResidenciaMTDT
@@ -50,6 +51,7 @@ namespace Infrastructure.Models
             [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un nombre")]
             [StringLength(40, ErrorMessage = "No se permiten más de 40 caracteres en el nombre")]
             public string nombre { get; set; }
+            [DataType(DataType.MultilineText)]
             [StringLength(200, ErrorMessage = "No se permiten más de 200 caracteres en la descripción")]
             [Display(Name = "Descripción")]
             public string descripcion { get; set; }
@@ -104,6 +106,7 @@ namespace Infrastructure.Models
             [Display(Name = "Es porcentual?")]
             public bool porcentual { get; set; }
             [Display(Name = "Motivo de cobro")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se recomienda un motivo")]
             [StringLength(100, ErrorMessage = "No se permiten más de 100 caracteres en el motivo")]
             public string motivo { get; set; }
         }
@@ -113,13 +116,33 @@ namespace Infrastructure.Models
             [Display(Name = "No. De Incidencia")]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se recomienda una descripción")]
             [StringLength(200, ErrorMessage = "No se permiten más de 200 caracteres en la descripción")]
             [Display(Name = "Descripción")]
+            [DataType(DataType.MultilineText)]
             public string descripcion { get; set; }
             [Display(Name = "Fecha")]
             public DateTime fecha { get; set; }
             [Display(Name = "Estado")]
             public byte estado { get; set; }
         }
+
+        public class NoticiasMTDT
+        {
+            [Display(Name = "Nombre")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un nombre")]
+            [StringLength(40, ErrorMessage = "No se permiten más de 40 caracteres en el nombre")]
+            public string nombre { get; set; }
+            [Display(Name = "Contenido")]
+            [DataType(DataType.MultilineText)]
+            [StringLength(65535, ErrorMessage = "No se permiten demasiados caracteres en el nombre")]
+            public string contenido { get; set; }
+            [Display(Name = "Fecha")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere una fecha con el formato dd-mm-yyyy")]
+            public DateTime fecha { get; set; }
+            [Display(Name = "Imagen")]
+            public byte[] imagen { get; set; }
+        }
+
     }
 }

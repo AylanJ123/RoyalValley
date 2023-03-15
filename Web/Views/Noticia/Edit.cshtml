@@ -1,0 +1,74 @@
+﻿@model Infrastructure.Models.Noticias
+
+@{
+    ViewBag.Title = "Editar una Noticia";
+    byte[] imagen = Model.imagen == null ? new byte[0] : Model.imagen;
+}
+
+
+@using (Html.BeginForm("Save", "Noticia", new { edit = true }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Editar noticia</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.nombre)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contenido, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contenido, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contenido, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.imagen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="ImageFile" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" src="@(imagen.Count() > 0 ? "data:image/jpeg;charset=utf-8;base64, " + Convert.ToBase64String(imagen) : "")"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar al listado", "Index")
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+@section Scripts {
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script>
+        $(function () {
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) || moment(value, "DD-MM-YYYY", true).isValid();
+            }
+        });
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd-mm-yy",
+                changemonth: true,
+                changeyear: true
+            });
+            $(".datepicker").val(moment(Date.now()).format("DD-MM-YYYY"));
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
