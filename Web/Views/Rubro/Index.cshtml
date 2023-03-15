@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Infrastructure.Models.Rubro>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Rubros";
 }
 
-<h2>Index</h2>
+<h2>Listado de rubros</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear un nuevo rubro", "Create")
 </p>
 <table class="table">
     <tr>
@@ -28,7 +28,7 @@
             @(item.porcentual ? string.Format("{0:0.##}% del valor base", item.monto * 100) : string.Format("\u20a1{0:0.00##}", item.monto))
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID })
         </td>
     </tr>
 }
