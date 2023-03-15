@@ -249,6 +249,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cobro\Details.cshtml" />
     <Content Include="Views\PlanCobro\Create.cshtml" />
+    <Content Include="Views\PlanCobro\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

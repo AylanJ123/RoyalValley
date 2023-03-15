@@ -97,8 +97,8 @@ namespace Infrastructure.Repository
                     if (rubros != null)
                     {
                         ctx.Entry(plan).Collection(p => p.Rubro).Load();
-                        var newCategoriaForPlanCobro = ctx.Rubro.Where(rubro => Array.Exists(rubros, id => rubro.ID == id)).ToList();
-                        plan.Rubro = newCategoriaForPlanCobro;
+                        var newRubroForPlanCobro = ctx.Rubro.Where(rubro => rubros.Contains(rubro.ID)).ToList();
+                        plan.Rubro = newRubroForPlanCobro;
                         ctx.Entry(plan).State = EntityState.Modified;
                         retorno = ctx.SaveChanges();
                     }

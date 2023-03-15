@@ -58,6 +58,25 @@ namespace RoyaltyValley.Controllers
             return View();
         }
 
+        public ActionResult Edit(int id)
+        {
+            ServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+            try
+            {
+                PlanCobro plan = _ServicePlanCobro.GetPlanCobroByID(id);
+                ViewBag.listaRubros = ListaRubros(plan.Rubro);
+                return View(plan);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "No se pudo editar el libro deseado" + ex.Message;
+                TempData["Redirect"] = "PlanCobro";
+                TempData["Redirect-Action"] = "Index";
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
         [HttpPost]
         public ActionResult Save(PlanCobro plan, int[] listaRubros)
         {
@@ -87,11 +106,13 @@ namespace RoyaltyValley.Controllers
             }
         }
 
-        private MultiSelectList ListaRubros()
+        private MultiSelectList ListaRubros(ICollection<Rubro> rubros = null)
         {
             IServiceRubro _ServiceRubro = new ServiceRubro();
             IEnumerable<Rubro> lista = _ServiceRubro.GetRubros();
-            return new MultiSelectList(lista, "ID", "Motivo", lista);
+            int[] selectedRubros = null;
+            if (rubros != null) selectedRubros = rubros.Select(r => r.ID).ToArray();
+            return new MultiSelectList(lista, "ID", "Motivo", selectedRubros);
         }
 
     }
