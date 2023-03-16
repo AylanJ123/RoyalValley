@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [RoyaltyValley-Aylan_Sebas]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Database [RoyaltyValley-Aylan_Sebas]    Script Date: 3/15/2023 8:03:57 PM ******/
 CREATE DATABASE [RoyaltyValley-Aylan_Sebas] CONTAINMENT = NONE
 GO
 ALTER DATABASE [RoyaltyValley-Aylan_Sebas] SET COMPATIBILITY_LEVEL = 150
@@ -78,7 +78,7 @@ ALTER DATABASE [RoyaltyValley-Aylan_Sebas] SET QUERY_STORE (OPERATION_MODE = REA
 GO
 USE [RoyaltyValley-Aylan_Sebas]
 GO
-/****** Object:  Table [dbo].[Cobro]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Cobro]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,7 +98,7 @@ CREATE TABLE [dbo].[Cobro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Edificio]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Edificio]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -116,7 +116,7 @@ CREATE TABLE [dbo].[Edificio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[EdificioPublico]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[EdificioPublico]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,7 +132,7 @@ CREATE TABLE [dbo].[EdificioPublico](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Incidencia]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Incidencia]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[Incidencia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Noticias]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Noticias]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -165,7 +165,7 @@ CREATE TABLE [dbo].[Noticias](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PlanCobro]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[PlanCobro]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -181,7 +181,7 @@ CREATE TABLE [dbo].[PlanCobro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Reserva]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Reserva]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,7 +200,7 @@ CREATE TABLE [dbo].[Reserva](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Residencia]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Residencia]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +218,7 @@ CREATE TABLE [dbo].[Residencia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Rubro]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Rubro]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -234,7 +234,7 @@ CREATE TABLE [dbo].[Rubro](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RubroPlan]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[RubroPlan]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -249,7 +249,7 @@ CREATE TABLE [dbo].[RubroPlan](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 3/15/2023 8:03:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -274,11 +274,19 @@ INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado],
 GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2022-11-01' AS Date), 1, 102, 17500.0000, 1, CAST(N'2022-11-05T00:00:00.000' AS DateTime))
 GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2022-11-01' AS Date), 1, 105, 18500.0000, 1, CAST(N'2022-11-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2022-12-01' AS Date), 1, 105, 18500.0000, 1, CAST(N'2022-12-01T00:00:00.000' AS DateTime))
+GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2022-12-01' AS Date), 4, 102, 23500.0000, 1, CAST(N'2022-12-05T00:00:00.000' AS DateTime))
 GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-01-01' AS Date), 1, 102, 17500.0000, 1, CAST(N'2023-02-05T00:00:00.000' AS DateTime))
 GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-01-01' AS Date), 1, 105, 18500.0000, 1, CAST(N'2023-01-01T00:00:00.000' AS DateTime))
+GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-01-01' AS Date), 2, 101, 25000.0000, 1, CAST(N'2023-01-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-02-01' AS Date), 1, 105, 18500.0000, 1, CAST(N'2023-02-01T00:00:00.000' AS DateTime))
 GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-02-01' AS Date), 2, 101, 25000.0000, 1, CAST(N'2023-02-01T00:00:00.000' AS DateTime))
 GO
@@ -286,7 +294,9 @@ INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado],
 GO
 INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 1, 101, 17500.0000, 0, NULL)
 GO
-INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 2, 102, 25000.0000, 0, NULL)
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 1, 105, 18500.0000, 0, NULL)
+GO
+INSERT [dbo].[Cobro] ([fecha], [IDPlanCobro], [IDResidencia], [total], [pagado], [fechaPago]) VALUES (CAST(N'2023-03-01' AS Date), 2, 102, 25000.0000, 0, CAST(N'2023-03-01T00:00:00.000' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[Edificio] ON 
 GO
@@ -298,7 +308,27 @@ INSERT [dbo].[Edificio] ([ID], [calle], [avenida], [descripcion], [fechaConst], 
 GO
 INSERT [dbo].[Edificio] ([ID], [calle], [avenida], [descripcion], [fechaConst], [estado]) VALUES (104, N'2', N'1', N'Lote baldío sin construir. Planes para convertir en residencia.', CAST(N'2022-08-01' AS Date), 0)
 GO
+INSERT [dbo].[Edificio] ([ID], [calle], [avenida], [descripcion], [fechaConst], [estado]) VALUES (105, N'3', N'1', N'Hogar de un piso con garaje, color azul con fachada frontal de rocas', CAST(N'2022-11-07' AS Date), 2)
+GO
 SET IDENTITY_INSERT [dbo].[Edificio] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Incidencia] ON 
+GO
+INSERT [dbo].[Incidencia] ([ID], [descripcion], [fecha], [estado], [IDUsuario]) VALUES (100, N'El vecino de la casa 102 deja a su perro afuera y casi muerde a mi hijo, pedirle que lo mantenga encerrado o le ponga bozal', CAST(N'2023-03-15' AS Date), 0, 1001)
+GO
+INSERT [dbo].[Incidencia] ([ID], [descripcion], [fecha], [estado], [IDUsuario]) VALUES (101, N'Estoy teniendo problemas con el salario, el gobierno lo tiene retenido entonces no podre pagar a tiempo', CAST(N'2023-03-15' AS Date), 1, 1001)
+GO
+INSERT [dbo].[Incidencia] ([ID], [descripcion], [fecha], [estado], [IDUsuario]) VALUES (102, N'Los vecinos de la 105 tiene música Rock todo el día a muy alto volumen', CAST(N'2023-03-15' AS Date), 1, 1001)
+GO
+SET IDENTITY_INSERT [dbo].[Incidencia] OFF
+GO
+INSERT [dbo].[Noticias] ([nombre], [contenido], [fecha], [imagen]) VALUES (N'Bienvenido!', N'Al sitio oficial de Royalty Valley!', CAST(N'2023-03-15' AS Date), 0x)
+GO
+INSERT [dbo].[Noticias] ([nombre], [contenido], [fecha], [imagen]) VALUES (N'Buffet', N'Buffet de bienvenida! Descuento del 25% a los residentes con menos de un mes con nosotros!
+Solo para residentes.', CAST(N'2023-03-14' AS Date), 0x)
+GO
+INSERT [dbo].[Noticias] ([nombre], [contenido], [fecha], [imagen]) VALUES (N'Partido de futsala', N'Mañana a las 6pm en el gimnasio local! Todos los residentes invitados.
+Se permiten 4 amigos por residencia. Avisar con antelación.', CAST(N'2023-03-09' AS Date), 0x)
 GO
 SET IDENTITY_INSERT [dbo].[PlanCobro] ON 
 GO
@@ -314,6 +344,8 @@ INSERT [dbo].[PlanCobro] ([ID], [nombre], [descripcion], [automatico]) VALUES (5
 GO
 INSERT [dbo].[PlanCobro] ([ID], [nombre], [descripcion], [automatico]) VALUES (6, N'Plan Avanzado Atrasado', N'Cobros básicos con multa del 25% por atrasarse dos semanas en el pago con extra por limpieza', 0)
 GO
+INSERT [dbo].[PlanCobro] ([ID], [nombre], [descripcion], [automatico]) VALUES (7, N'Plan básico multa por basura y atraso', N'Cobro básico según la residencia con multa por botar basura y atraso', 0)
+GO
 SET IDENTITY_INSERT [dbo].[PlanCobro] OFF
 GO
 INSERT [dbo].[Residencia] ([edificio], [montoMensual], [cantInquilinos], [espacioGaraje], [habitaciones], [dueno]) VALUES (101, 25000.0000, 6, 2, 10, 1001)
@@ -321,6 +353,8 @@ GO
 INSERT [dbo].[Residencia] ([edificio], [montoMensual], [cantInquilinos], [espacioGaraje], [habitaciones], [dueno]) VALUES (102, 17500.0000, 3, 0, 5, 1002)
 GO
 INSERT [dbo].[Residencia] ([edificio], [montoMensual], [cantInquilinos], [espacioGaraje], [habitaciones], [dueno]) VALUES (103, 0.0000, 0, 0, 6, 1003)
+GO
+INSERT [dbo].[Residencia] ([edificio], [montoMensual], [cantInquilinos], [espacioGaraje], [habitaciones], [dueno]) VALUES (105, 18500.0000, 4, 1, 7, 1004)
 GO
 SET IDENTITY_INSERT [dbo].[Rubro] ON 
 GO
@@ -350,11 +384,15 @@ INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1002, 6)
 GO
 INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1003, 3)
 GO
+INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1003, 7)
+GO
 INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1004, 4)
 GO
 INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1005, 5)
 GO
 INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1005, 6)
+GO
+INSERT [dbo].[RubroPlan] ([IDRubro], [IDPlan]) VALUES (1005, 7)
 GO
 SET IDENTITY_INSERT [dbo].[Usuario] ON 
 GO
@@ -364,11 +402,13 @@ INSERT [dbo].[Usuario] ([ID], [nombre], [apellido1], [apellido2], [telefono], [c
 GO
 INSERT [dbo].[Usuario] ([ID], [nombre], [apellido1], [apellido2], [telefono], [correo], [contrasena], [cedula], [tipo]) VALUES (1003, N'Jessica', N'Herrera', N'Solano', NULL, N'jessyherrera@gmail.com', 0x53656775726973696D61, N'408530472', 0)
 GO
+INSERT [dbo].[Usuario] ([ID], [nombre], [apellido1], [apellido2], [telefono], [correo], [contrasena], [cedula], [tipo]) VALUES (1004, N'Josué', N'Cañas', N'Delgado', NULL, N'cañasflaco@gmail.com', 0x02004EBA5C95662C8E428B01FF9345096E695E7FA0BF6A3513B58D2F1E7DE4FC1BC4C064A66F64A64EE6C98A93E27DCA39C2B1DEB6093E35AF71ECCC2F47E0D9C984F3841C77, N'303450687', 0)
+GO
 SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Usuario__2A586E0BA9709953]    Script Date: 1/3/2023 14:45:09 ******/
+/****** Object:  Index [UQ__Usuario__2A586E0BA9709953]    Script Date: 3/15/2023 8:03:57 PM ******/
 ALTER TABLE [dbo].[Usuario] ADD  CONSTRAINT [UQ__Usuario__2A586E0BA9709953] UNIQUE NONCLUSTERED 
 (
 	[correo] ASC
