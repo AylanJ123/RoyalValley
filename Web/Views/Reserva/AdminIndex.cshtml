@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Infrastructure.Models.Reserva>
+
+@{
+    ViewBag.Title = "Reservas";
+}
+
+<h2>Reservas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.motivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horas)
+        </th>
+        <th>
+            Edificio
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.motivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EdificioPublico.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.nombre)
+        </td>
+        <td>
+            @(item.estado == 0 ? "Pendiente" : item.estado == 1 ? "Aprobado" : "Rechazado")
+        </td>
+        <td>
+            @Html.ActionLink("Aprobar", "UpdateState", new { estado = 1, fecha = item.fecha, idEdificio = item.EdificioPublico.ID }) |
+            @Html.ActionLink("Aprobar", "UpdateState", new { estado = 2, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })
+        </td>
+    </tr>
+}
+
+</table>

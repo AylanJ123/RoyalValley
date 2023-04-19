@@ -93,6 +93,7 @@
     <Compile Include="Models\Edificio.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EdificioExtend.cs" />
     <Compile Include="Models\EdificioPublico.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
@@ -120,12 +121,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepositoryCobro.cs" />
+    <Compile Include="Repository\RepositoryEdificioPublico.cs" />
     <Compile Include="Repository\IRepositoryIncidencia.cs" />
     <Compile Include="Repository\IRepositoryNoticia.cs" />
     <Compile Include="Repository\IRepositoryRubro.cs" />
     <Compile Include="Repository\IRepositoryPlanCobro.cs" />
     <Compile Include="Repository\IRepositoryResidencia.cs" />
+    <Compile Include="Repository\IRepositoryEdificioPublico.cs" />
     <Compile Include="Repository\RepositoryCobro.cs" />
+    <Compile Include="Repository\IRepositoryReserva.cs" />
+    <Compile Include="Repository\RepositoryReserva.cs" />
     <Compile Include="Repository\RepositoryPlanCobro.cs" />
     <Compile Include="Repository\RepositoryIncidencia.cs" />
     <Compile Include="Repository\RepositoryNoticia.cs" />

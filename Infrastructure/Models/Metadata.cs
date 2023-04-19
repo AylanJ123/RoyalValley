@@ -16,6 +16,7 @@ namespace Infrastructure.Models
     [MetadataType(typeof(RubroMTDT))] public partial class Rubro { }
     [MetadataType(typeof(IncidenciaMTDT))] public partial class Incidencia { }
     [MetadataType(typeof(NoticiasMTDT))] public partial class Noticias { }
+    [MetadataType(typeof(ReservaMTDT))] public partial class Reserva { }
     public static class Metadata
     {
         public class ResidenciaMTDT
@@ -143,6 +144,27 @@ namespace Infrastructure.Models
             public DateTime fecha { get; set; }
             [Display(Name = "Imagen")]
             public byte[] imagen { get; set; }
+        }
+
+        public class ReservaMTDT
+        {
+            [Display(Name = "No. De Edificio")]
+            [Required]
+            public int IDEdificio { get; set; }
+            [Display(Name = "Hora de reserva")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere una fecha con el formato dd-mm-yyyy")]
+            public DateTime fecha { get; set; }
+            [Display(Name = "Motivo de reserva")]
+            [StringLength(100, ErrorMessage = "No se permiten más de 100 caracteres en el nombre")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un motivo")]
+            public string motivo { get; set; }
+            [Display(Name = "Estado")]
+            public byte estado { get; set; }
+            [Display(Name = "Usuario que reserva")]
+            public int IDUsuario { get; set; }
+            [Display(Name = "Cantidad de horas")]
+            [Required]
+            public byte horas { get; set; }
         }
 
     }
