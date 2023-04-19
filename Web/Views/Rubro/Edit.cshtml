@@ -7,7 +7,7 @@
 @using (Html.BeginForm("Save", "Rubro"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Editar rubro</h4>
         <hr />
@@ -17,7 +17,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.monto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control" } })
+                @{
+                    if (Model.porcentual)
+                    {
+                        @Html.Partial("_Percentage")
+                    }
+                    else
+                    {
+                        @Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                }
                 @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,4 +63,9 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).on("input", ".percentage", event => {
+            $(event.target.parentElement.children[0].children[0]).html((Math.round(event.target.value * 100 * 100) / 100) + "%");
+        })
+    </script>
 }

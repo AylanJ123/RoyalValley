@@ -100,6 +100,7 @@ namespace Infrastructure.Models
             [Display(Name = "No. De Rubro")]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
+            [UIHint("Money")]
             [Display(Name = "Monto")]
             [Range(-922337203685477.5808, 922337203685477.5807, ErrorMessage = "No se permiten valores demasiado grandes")]
             public decimal monto { get; set; }

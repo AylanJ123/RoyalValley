@@ -19,13 +19,23 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.motivo)
         </td>
         <td>
-            @(item.porcentual ? string.Format("{0:0.##}% del valor base", item.monto * 100) : string.Format("\u20a1{0:0.00##}", item.monto))
+            @{
+                if (item.porcentual)
+                {
+                    @Html.Raw(string.Format("{0:0.##}% del valor base", item.monto * 100));
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.monto);
+                }
+            }
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID })

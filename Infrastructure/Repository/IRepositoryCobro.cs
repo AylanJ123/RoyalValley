@@ -12,5 +12,6 @@ namespace Infrastructure.Repository
         IEnumerable<Cobro> GetCobros();
         Cobro GetCobroByKeys(DateTime fecha, int idResidencia, int idPlanCobro);
         IEnumerable<Cobro> GetCobrosForResidencia(int idResidencia);
+        Cobro CreateCobro(Cobro cobro);
     }
 }

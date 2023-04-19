@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ApplicationCore.DTOS.EstadoCuenta>
+@using System.Globalization
+
+@{
+    ViewBag.Title = "Listado de Estados de Cuenta";
+    CultureInfo info = new CultureInfo("es-CR");
+}
+
+<h2>Listado de Estados de Cuenta</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(item => item.Residencia.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => item.Residencia.Usuario.nombre)
+        </th>
+        <th>
+            Este mes tiene cobro?
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Residencia.ID)
+            </td>
+            <td>
+                @string.Format("{0} {1} {2}", item.Residencia.Usuario.nombre, item.Residencia.Usuario.apellido1, item.Residencia.Usuario.apellido2)
+            </td>
+            <td>
+                @(item.Cobros.Find(
+                    cobro => cobro.fecha.Month == DateTime.Now.Month && cobro.fecha.Year == DateTime.Now.Year
+                ) != null ? "Sí" : "No")
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "AdminDetails", new { idResidencia = item.Residencia.ID }) | 
+                @Html.ActionLink("Asignar Plan", "AdminCreate", new { idResidencia = item.Residencia.ID })
+            </td>
+        </tr>
+    }
+
+</table>

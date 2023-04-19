@@ -99,5 +99,16 @@ namespace Infrastructure.Repository
             }
         }
 
+        public Cobro CreateCobro(Cobro cobro)
+        {
+            using (DatabaseContext ctx = new DatabaseContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                ctx.Cobro.Add(cobro);
+                ctx.SaveChanges();
+            }
+            return GetCobroByKeys(cobro.fecha, cobro.IDResidencia, cobro.IDPlanCobro);
+        }
+
     }
 }

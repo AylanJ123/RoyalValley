@@ -11,5 +11,6 @@ namespace ApplicationCore.Services
     {
         IEnumerable<Cobro> GetCobros();
         Cobro GetCobroByKeys(DateTime fecha, int idResidencia, int idPlanCobro);
+        Cobro CreateCobro(DateTime fecha, int planSelected, int idResidencia);
     }
 }

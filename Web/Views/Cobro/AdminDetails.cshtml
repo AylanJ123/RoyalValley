@@ -1,0 +1,52 @@
+﻿@model ApplicationCore.DTOS.EstadoCuenta
+@using System.Globalization
+@using ApplicationCore.Utils.Enums
+@using ApplicationCore.Utils.Extensions
+@using ApplicationCore.DTOS;
+@using Infrastructure.Models;
+
+@{
+    ViewBag.Title = "Detalles";
+    CultureInfo info = new CultureInfo("es-CR");
+}
+
+<h2>Cobros para la Residencia No. @Model.Residencia.ID</h2>
+
+<div>
+
+    <br />
+    <h2>Historial de cobros</h2>
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Plan
+            </th>
+            <th>
+                Monto
+            </th>
+        </tr>
+
+        @foreach (var cobro in Model.Cobros)
+        {
+            <tr>
+                <td>
+                    @cobro.fecha.ToString("MMMM \\del yyyy", info)
+                </td>
+                <td>
+                    @cobro.PlanCobro.nombre
+                </td>
+                <td>
+                    @("\u20a1" + cobro.total)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Regresar al listado", "AdminIndex")
+</p>
