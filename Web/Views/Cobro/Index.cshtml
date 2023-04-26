@@ -32,12 +32,7 @@
                 @string.Format("{0} {1} {2}", item.Residencia.Usuario.nombre, item.Residencia.Usuario.apellido1, item.Residencia.Usuario.apellido2)
             </td>
             <td>
-                @Html.ActionLink("Detalles", "Details", new { idResidencia = item.Residencia.ID })
-                @*
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                *@
+                <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Details", "Cobro", new { idResidencia = item.Residencia.ID })'">Detalles</button>
             </td>
         </tr>
     }

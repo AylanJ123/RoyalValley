@@ -6,9 +6,7 @@
 
 <h2>Listado de rubros</h2>
 
-<p>
-    @Html.ActionLink("Crear un nuevo rubro", "Create")
-</p>
+<button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create")'">Crear un rubro</button>
 <table class="table">
     <tr>
         <th>
@@ -38,7 +36,7 @@
             }
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID })
+            <button class="btn btn-secondary" type="button" onclick="location.href='@Url.Action("Edit", new { id = item.ID })'">Editar</button>
         </td>
     </tr>
 }

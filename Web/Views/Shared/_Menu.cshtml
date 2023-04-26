@@ -1,5 +1,5 @@
 ﻿@using Web.Utils;
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         @Html.ActionLink("Royalty Valley", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,16 +39,22 @@
                        href="#" role="button" aria-haspopup="true"
                        aria-expanded="false"><i class="fa-solid fa-user"></i>Perfil</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item"
-                           href="@Url.Action("Index","Usuario")">
-                            <i class="fa-solid fa-user-plus"></i>
-                            Login
-                        </a>
-                        <a class="dropdown-item"
-                           href="@Url.Action("Logout","Usuario")">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            Logout
-                        </a>
+                        @if (Session["Usuario"] == null)
+                        {
+                            <a class="dropdown-item"
+                               href="@Url.Action("Index","Usuario")">
+                                <i class="fa-solid fa-user-plus"></i>
+                                Login
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item"
+                               href="@Url.Action("Logout","Usuario")">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        }
                     </div>
                 </li>
             </ul>

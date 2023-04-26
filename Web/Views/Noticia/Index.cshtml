@@ -4,10 +4,10 @@
     ViewBag.Title = "Noticias";
 }
 
-<h2>Index</h2>
+<h2>Noticias</h2>
 
 <p>
-    @Html.ActionLink("Crear una noticia", "Create")
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create")'">Crear una noticia</button>
 </p>
 <table class="table">
     <tr>
@@ -28,7 +28,7 @@
             @Html.DisplayFor(modelItem => item.fecha)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { nombre = item.nombre })
+            <button class="btn btn-secondary" type="button" onclick="location.href='@Url.Action("Edit", new { nombre = item.nombre })'">Editar</button>
         </td>
     </tr>
 }

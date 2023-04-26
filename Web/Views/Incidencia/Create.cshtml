@@ -22,14 +22,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Regresar al listado", "Index")
+    <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Incidencia")'">Regresar al listado</button>
 </div>
 
 @section Scripts {

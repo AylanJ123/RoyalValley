@@ -6,9 +6,7 @@
 
 <h2>Listado de Planes de Cobro</h2>
 
-<p>
-    @Html.ActionLink("Crear un nuevo plan", "Create")
-</p>
+<button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create")'">Crear un plan</button>
 <table class="table">
     <tr>
         <th>
@@ -36,8 +34,8 @@
                 @Html.DisplayFor(modelItem => item.automatico)
             </td>
             <td>
-                @Html.ActionLink("Detalles", "Details", new { id = item.ID })
-                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Details", new { id = item.ID })'">Detalles</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href='@Url.Action("Edit", new { id = item.ID })'">Editar</button>
             </td>
         </tr>
     }

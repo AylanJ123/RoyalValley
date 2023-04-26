@@ -15,6 +15,7 @@ namespace Web.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Usuario"] != null) return RedirectToAction("Logout");
             return View();
         }
 
@@ -25,6 +26,7 @@ namespace Web.Controllers
 
         public ActionResult Login(string email, string pass)
         {
+            if (Session["Usuario"] != null) return RedirectToAction("Logout");
             IServiceUsuario _ServiceUsuario = new ServiceUsuario();
             Usuario oUsuario = null;
             try

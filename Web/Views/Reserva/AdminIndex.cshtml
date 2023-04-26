@@ -50,8 +50,8 @@
             @(item.estado == 0 ? "Pendiente" : item.estado == 1 ? "Aprobado" : "Rechazado")
         </td>
         <td>
-            @Html.ActionLink("Aprobar", "UpdateState", new { estado = 1, fecha = item.fecha, idEdificio = item.EdificioPublico.ID }) |
-            @Html.ActionLink("Rechazar", "UpdateState", new { estado = 2, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })
+            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("UpdateState", new { estado = 1, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })'">Aprobar</button>
+            <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("UpdateState", new { estado = 2, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })'">Rechazar</button>
         </td>
     </tr>
 }

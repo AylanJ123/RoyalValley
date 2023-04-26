@@ -38,7 +38,7 @@
             @(item.estado == 0 ? "Pendiente" : "Revisado")
         </td>
         <td>
-            @Html.ActionLink("Cambiar Estado", "UpdateState", "Incidencia", new { id = item.ID }, new { @class = "btn btn-default" })
+            <button class="btn btn-secondary" type="button" onclick="location.href='@Url.Action("UpdateState", "Incidencia", new { id = item.ID })'">Cambiar Estado</button>
         </td>
     </tr>
 }

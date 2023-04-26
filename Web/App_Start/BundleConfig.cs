@@ -23,7 +23,7 @@ namespace Web
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-Simplex.min.css"));
+                      "~/Content/bootstrap.min.css"));
         }
     }
 }

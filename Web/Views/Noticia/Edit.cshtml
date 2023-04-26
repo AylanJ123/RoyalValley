@@ -41,14 +41,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" src="@(imagen.Count() > 0 ? "data:image/jpeg;charset=utf-8;base64, " + Convert.ToBase64String(imagen) : "")"/>
+                <input type="submit" value="Guardar" class="btn btn-success" src="@(imagen.Count() > 0 ? "data:image/jpeg;charset=utf-8;base64, " + Convert.ToBase64String(imagen) : "")"/>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Regresar al listado", "Index")
+    <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Noticia")'">Regresar al listado</button>
 </div>
 
 <link href="~/Content/jquery-ui.css" rel="stylesheet" />

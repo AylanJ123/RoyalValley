@@ -36,8 +36,8 @@
                 ) != null ? "Sí" : "No")
             </td>
             <td>
-                @Html.ActionLink("Detalles", "AdminDetails", new { idResidencia = item.Residencia.ID }) | 
-                @Html.ActionLink("Asignar Plan", "AdminCreate", new { idResidencia = item.Residencia.ID })
+                <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("AdminDetails", new { idResidencia = item.Residencia.ID })'">Detalles</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href='@Url.Action("AdminCreate", new { idResidencia = item.Residencia.ID })'">Asignar Plan</button>
             </td>
         </tr>
     }
