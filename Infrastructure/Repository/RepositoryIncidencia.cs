@@ -21,7 +21,7 @@ namespace Infrastructure.Repository
                 using (DatabaseContext cx = new DatabaseContext())
                 {
                     cx.Configuration.LazyLoadingEnabled = false;
-                    list = cx.Incidencia.ToList();
+                    list = cx.Incidencia.Include("Usuario").ToList();
                 }
                 return list;
             }

@@ -6,9 +6,6 @@
 
 <h2>Reservas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -54,7 +51,7 @@
         </td>
         <td>
             @Html.ActionLink("Aprobar", "UpdateState", new { estado = 1, fecha = item.fecha, idEdificio = item.EdificioPublico.ID }) |
-            @Html.ActionLink("Aprobar", "UpdateState", new { estado = 2, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })
+            @Html.ActionLink("Rechazar", "UpdateState", new { estado = 2, fecha = item.fecha, idEdificio = item.EdificioPublico.ID })
         </td>
     </tr>
 }

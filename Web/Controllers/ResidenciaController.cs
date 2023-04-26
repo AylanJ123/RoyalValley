@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using Web.Utils;
 
 namespace RoyaltyValley.Controllers
 {
@@ -14,6 +15,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceResidencia _ServiceResidencia = new ServiceResidencia();
             IEnumerable<Residencia> list;
             try
@@ -33,6 +35,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Details(int id)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceResidencia _ServiceResidencia = new ServiceResidencia();
             Residencia res;
             try

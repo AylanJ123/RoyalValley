@@ -81,17 +81,34 @@ namespace Infrastructure.Models
             [Display(Name = "ID de Usuario")]
             public int ID { get; set; }
             [Display(Name = "Nombre")]
+            [StringLength(20, ErrorMessage = "No se permiten más de 20 caracteres en el nombre")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un nombre")]
             public string nombre { get; set; }
             [Display(Name = "Primer apellido")]
+            [StringLength(12, ErrorMessage = "No se permiten más de 12 caracteres en el primer apellido")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un primer apellido")]
+            
             public string apellido1 { get; set; }
             [Display(Name = "Segundo apellido")]
+            [StringLength(12, ErrorMessage = "No se permiten más de 12 caracteres en el segundo apellido")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un segundo apellido")]
+            
             public string apellido2 { get; set; }
             [Display(Name = "Teléfono")]
+            [StringLength(12, ErrorMessage = "No se permiten más de 12 caracteres en el teléfono")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un teléfono")]
+            
             public string telefono { get; set; }
             [Display(Name = "Correo electrónico")]
+            [StringLength(30, ErrorMessage = "No se permiten más de 30 caracteres en el correo")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere un correo")]
             public string correo { get; set; }
             [Display(Name = "Cédula")]
+            [StringLength(12, ErrorMessage = "No se permiten más de 12 caracteres en la cédula")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere una cédula")]
             public string cedula { get; set; }
+            [Display(Name = "Contraseña")]
+            public byte[] contrasena { get; set; }
             [Display(Name = "Tipo de usuario")]
             public byte tipo { get; set; }
         }
@@ -166,6 +183,7 @@ namespace Infrastructure.Models
             [Required]
             public byte horas { get; set; }
         }
+
 
     }
 }

@@ -16,6 +16,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceIncidencia _ServiceIncidencia = new ServiceIncidencia();
             IEnumerable<Incidencia> list;
             try
@@ -35,16 +36,19 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Create()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             return View();
         }
 
         public ActionResult New(Incidencia incidencia)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             ServiceIncidencia _ServiceIncidencia = new ServiceIncidencia();
             try
             {
+                incidencia.IDUsuario = ((Usuario)Session["Usuario"]).ID;
                 _ServiceIncidencia.New(incidencia);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
@@ -58,6 +62,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult UpdateState(int id)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             ServiceIncidencia _ServiceIncidencia = new ServiceIncidencia();
             try
             {

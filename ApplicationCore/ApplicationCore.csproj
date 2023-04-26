@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="DTOS\EstadoCuenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceUsuario.cs" />
+    <Compile Include="Services\IServiceUsuario.cs" />
     <Compile Include="Services\ServiceEdificioPublico.cs" />
     <Compile Include="Services\IServiceEdificioPublico.cs" />
     <Compile Include="Services\IServiceReserva.cs" />

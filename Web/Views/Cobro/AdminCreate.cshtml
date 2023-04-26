@@ -27,7 +27,7 @@
 
         <div class="form-group">
             @Html.Label("Seleccione un plan de cobro", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">w
+            <div class="col-md-10">
                 @Html.ListBox("planSelected",
                     (SelectList) ViewBag.listaPlanes,
                     htmlAttributes: new { @class = "form-control", required = "required" }

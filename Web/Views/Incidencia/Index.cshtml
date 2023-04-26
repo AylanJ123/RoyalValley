@@ -6,9 +6,6 @@
 
 <h2>Listado de incidencias</h2>
 
-<p>
-    @Html.ActionLink("Crear una nueva incidencia", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -29,7 +26,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Usuario.nombre)
+            @Html.DisplayFor(modelItem => item.Usuario.FullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.descripcion)

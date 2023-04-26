@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+﻿@using Web.Utils;
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         @Html.ActionLink("Royalty Valley", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,31 +10,42 @@
                 <li class="nav-item dropdown">
                     @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos</a>
-                    <div class="dropdown-menu">
-                        @Html.ActionLink("Residencias", "Index", "Residencia", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Planes de Cobro", "Index", "PlanCobro", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Estados de Cuenta", "Index", "Cobro", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Rubros", "Index", "Rubro", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Incidencias", "Index", "Incidencia", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Noticias", "Index", "Noticia", null, new { @class = "dropdown-item" })
-                        @*<div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>*@
-                    </div>
-                </li>
+                @if (Session["Usuario"] != null)
+                 {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos</a>
+                        <div class="dropdown-menu">
+                            @if (Util.IsAuthorized(Session["Usuario"], Util.UserAuth.Admin))
+                            {
+                                @Html.ActionLink("Planes de Cobro", "Index", "PlanCobro", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Estados de Cuenta", "Index", "Cobro", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Rubros", "Index", "Rubro", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Noticias", "Index", "Noticia", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Incidencias", "Index", "Incidencia", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Aprobar Reservas", "AdminIndex", "Reserva", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Asignar Planes", "AdminIndex", "Cobro", null, new { @class = "dropdown-item" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Residencias", "Index", "Residencia", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Incidencias", "Create", "Incidencia", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Reservas", "Create", "Reserva", null, new { @class = "dropdown-item" })
+                            }
+                        </div>
+                    </li>
+                 }
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                        href="#" role="button" aria-haspopup="true"
                        aria-expanded="false"><i class="fa-solid fa-user"></i>Perfil</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item"
-                           href="@Url.Action("Index","Login")">
+                           href="@Url.Action("Index","Usuario")">
                             <i class="fa-solid fa-user-plus"></i>
                             Login
                         </a>
                         <a class="dropdown-item"
-                           href="@Url.Action("Logout","Login")">
+                           href="@Url.Action("Logout","Usuario")">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             Logout
                         </a>

@@ -119,7 +119,10 @@
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarioExtend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RepositoryUsuario.cs" />
+    <Compile Include="Repository\IRepositoryUsuario.cs" />
     <Compile Include="Repository\IRepositoryCobro.cs" />
     <Compile Include="Repository\RepositoryEdificioPublico.cs" />
     <Compile Include="Repository\IRepositoryIncidencia.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Repository\RepositoryRubro.cs" />
     <Compile Include="Repository\RepositoryResidencia.cs" />
     <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\Crypto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

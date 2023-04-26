@@ -17,6 +17,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
             IEnumerable<EstadoCuenta> list;
             try
@@ -36,6 +37,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Details(int idResidencia)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
             EstadoCuenta estado;
             try
@@ -55,6 +57,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult AdminIndex()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
             IEnumerable<EstadoCuenta> list;
             try
@@ -74,6 +77,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult AdminDetails(int idResidencia)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
             EstadoCuenta estado;
             try
@@ -93,6 +97,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult AdminCreate(int idResidencia)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             try
             {
                 ViewBag.listaPlanes = ListaPlanes();
@@ -110,6 +115,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Save(string fecha, int planSelected, int idResidencia)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceEstadoCuenta _ServiceEstadoCuenta = new ServiceEstadoCuenta();
             IServiceCobro _ServiceCobro = new ServiceCobro();
             EstadoCuenta estado;

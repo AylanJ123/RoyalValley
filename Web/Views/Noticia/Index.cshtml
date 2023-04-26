@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Infrastructure.Models.Noticias>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Noticias";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear una noticia", "Create")
 </p>
 <table class="table">
     <tr>
@@ -28,7 +28,7 @@
             @Html.DisplayFor(modelItem => item.fecha)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { nombre = item.nombre })
+            @Html.ActionLink("Editar", "Edit", new { nombre = item.nombre })
         </td>
     </tr>
 }

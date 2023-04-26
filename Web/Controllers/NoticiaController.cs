@@ -16,6 +16,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null) return RedirectToAction("Unauthorized", "Usuario");
             IServiceNoticia _ServiceNoticia = new ServiceNoticia();
             IEnumerable<Noticias> list;
             try
@@ -35,11 +36,13 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Create()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             return View();
         }
 
         public ActionResult Edit(string nombre)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             ServiceNoticia _ServiceNoticia = new ServiceNoticia();
             try
             {
@@ -59,6 +62,7 @@ namespace RoyaltyValley.Controllers
         [HttpPost]
         public ActionResult Save(Noticias noticia, bool edit = false)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceNoticia _ServiceNoticia = new ServiceNoticia();
             try
             {

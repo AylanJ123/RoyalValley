@@ -21,7 +21,6 @@ namespace ApplicationCore.Services
             IRepositoryIncidencia _RepositoryIncidencia = new RepositoryIncidencia();
             incidencia.fecha = DateTime.Now;
             incidencia.estado = 0;
-            incidencia.IDUsuario = 1001; //Temporal
             return _RepositoryIncidencia.Save(incidencia);
         }
 

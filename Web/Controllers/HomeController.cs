@@ -12,6 +12,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null) return RedirectToAction("Unauthorized", "Usuario");
             IServiceNoticia _ServiceNoticia = new ServiceNoticia();
             IEnumerable<Noticias> list;
             try

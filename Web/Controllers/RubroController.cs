@@ -16,6 +16,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult Index()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceRubro _ServiceRubro = new ServiceRubro();
             IEnumerable<Rubro> list;
             try
@@ -35,11 +36,13 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Create()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             return View();
         }
 
         public ActionResult Edit(int id)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             ServiceRubro _ServiceRubro = new ServiceRubro();
             try
             {
@@ -59,6 +62,7 @@ namespace RoyaltyValley.Controllers
         [HttpPost]
         public ActionResult Save(Rubro plan)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceRubro _ServiceRubro = new ServiceRubro();
             try
             {

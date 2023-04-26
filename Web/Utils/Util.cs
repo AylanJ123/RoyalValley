@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,5 +43,24 @@ namespace Web.Utils
             return lista;
 
         }
+
+        public static bool IsAuthorized(Controller controller, UserAuth authLevel)
+        {
+            if (!(controller.Session["Usuario"] is Usuario user)) return false;
+            return user.tipo == (byte) authLevel;
+        }
+
+        public static bool IsAuthorized(object usuarioObj, UserAuth authLevel)
+        {
+            return ((Usuario)usuarioObj).tipo == (byte)authLevel;
+        }
+
+        [Flags]
+        public enum UserAuth : byte
+        {
+            Resident = 0,
+            Admin = 1
+        }
+
     }
 }

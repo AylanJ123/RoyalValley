@@ -19,7 +19,6 @@ namespace ApplicationCore.Services
         {
             IRepositoryReserva _RepositoryReserva = new RepositoryReserva();
             reserva.estado = 0;
-            reserva.IDUsuario = 1001; //Temporal
             reserva.IDEdificio = edificioId;
             return _RepositoryReserva.Save(reserva);
         }

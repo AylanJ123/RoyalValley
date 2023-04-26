@@ -16,6 +16,7 @@ namespace RoyaltyValley.Controllers
     {
         public ActionResult AdminIndex()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceReserva _ServiceReserva = new ServiceReserva();
             IEnumerable<Reserva> list;
             try
@@ -35,12 +36,14 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult Create()
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             ViewBag.listaEdificios = ListaEdificios();
             return View();
         }
 
         public ActionResult Save(Reserva reserva, int edificioId, string fecha, string hora)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Resident)) return RedirectToAction("Unauthorized", "Usuario");
             ServiceReserva _ServiceReserva = new ServiceReserva();
             try
             {
@@ -61,6 +64,7 @@ namespace RoyaltyValley.Controllers
                 }
                 if (ModelState.IsValid && scheduleFree)
                 {
+                    reserva.IDUsuario = ((Usuario) Session["Usuario"]).ID;
                     _ServiceReserva.CreateReserva(reserva, edificioId);
                     return RedirectToAction("Index", "Home");
                 }
@@ -84,6 +88,7 @@ namespace RoyaltyValley.Controllers
 
         public ActionResult UpdateState(byte estado, DateTime fecha, int idEdificio)
         {
+            if (!Util.IsAuthorized(this, Util.UserAuth.Admin)) return RedirectToAction("Unauthorized", "Usuario");
             IServiceReserva _ServiceReserva = new ServiceReserva();
             try
             {
